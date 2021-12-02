@@ -10,8 +10,6 @@ const Sync = require('firefox-sync')
 /**
  * See <https://www.codejam.info/2021/08/scripting-firefox-sync-lockwise-figuring-the-protocol.html>.
  *
- * @param {Buffer} syncKey
- * @returns {Promise<import('../types').KeyBundle>}
  * From valeriangalliat/node-firefox-sync @ GitHub
  */
  async function deriveKeys (syncKey) {
@@ -101,40 +99,3 @@ app.post('/upItemsCollection', async (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
-
-
-/**
- * 
- * 
- * {
-  "forms": 1637471275.85,
-  "history": 1638291852.27,
-  "tabs": 1638291852.08,
-  "crypto": 1636937525.04,
-  "bookmarks": 1637471275.68,
-  "meta": 1636937528.49,
-  "passwords": 1636937526.71,
-  "prefs": 1636937526.26,
-  "clients": 1638272974.74
-}
-
-
-
-
-
-payload: {
-      id: 'unfiled',
-      type: 'folder',
-      parentid: 'places',
-      hasDupe: true,
-      parentName: '',
-      dateAdded: 1636790922173,
-      title: 'unfiled',
-      children: []
-    }
-
-
-
-
-
- */
