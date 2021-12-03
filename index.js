@@ -78,10 +78,12 @@ app.post('/getCollection', async (req, res) => {
     res.setHeader('Content-Type', 'application/json');
 
     var sync = Sync()
-    sync.creds = req.body.creds
+    sync.creds = req.body.creds.creds
+    console.log(req.body.collection)
+    console.log(sync.creds)
     const items = await sync.getCollection(req.body.collection,
         { full: true })
-
+      console.log(JSON.stringify(items))
     res.end(JSON.stringify(items));
 })
 
@@ -90,7 +92,8 @@ app.post('/upItemsCollection', async (req, res) => {
     res.setHeader('Content-Type', 'application/json');
 
     var sync = Sync()
-    sync.creds = req.body.creds
+    console.log(req.body.payload)
+    sync.creds = req.body.creds.creds
     const items = await sync.putCollectionItems(req.body.collection,
         req.body.payload)
 
